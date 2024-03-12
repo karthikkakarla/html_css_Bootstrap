@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>football template</title>
+		<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all"> 
+<link rel="stylesheet" href="css/swipebox.css">     
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+		<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+        <script type="text/javascript" src="engine1/jquery.js"></script>
+		<style>
+    #spinner {
+    -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  #spinner:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+  
+
+  
+    /* WebKit and Opera browsers */
+  @-webkit-keyframes spinner {
+    from { -webkit-transform: rotateY(0deg);    }
+    to   { -webkit-transform: rotateY(-360deg); }
+  }
+
+  /* all other browsers */
+  @keyframes spinner {
+    from {
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
+    to {
+      -moz-transform: rotateY(-360deg);
+      -ms-transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
+    }
+  }
+  
+  
+  
+  
+  
+  
+  html {
+  font-size: 16px;
+  /* -webkit-tap-highlight-color: transparent; */
+}
+
+.s-btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  white-space: nowrap;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.s-btn:focus, .s-btn:hover {
+  text-decoration: none;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.s-btn.focus {
+  text-decoration: none;
+}
+
+.s-btn:active, .s-btn.active {
+  background-image: none;
+  outline: 0;
+}
+
+.s-btn.disabled, .s-btn:disabled,
+fieldset[disabled] .s-btn {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.s-btn__element--left, .s-btn__element--right {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+
+/* Sizes
+------------------------------ */
+.s-btn--xs {
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 0.5rem 1.25rem;
+}
+
+.s-btn--sm {
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding: 0.75rem 1.25rem;
+}
+
+.s-btn--md {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  padding: 1rem 2.5rem;
+}
+
+.s-btn-icon--md {
+  font-size: 1rem;
+  padding: 0.9375rem 1.5625rem 0.75rem;
+}
+
+/* Styles
+------------------------------ */
+/* 
+
+/* Form Input v3 */
+.s-form-v3__input {
+  position: relative;
+  height: 3.125rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  padding: 0 1.25rem 0 0;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.s-form-v3__input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-form-v3__input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-form-v3__input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-form-v3__input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-form-v3__input:focus {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.99);
+  box-shadow: none;
+}
+
+.s-form-v3__input:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.s-form-v3__input:focus::-moz-placeholder {
+  color: #fff;
+}
+
+.s-form-v3__input:focus:-ms-input-placeholder {
+  color: #fff;
+}
+
+.s-form-v3__input:focus::placeholder {
+  color: #fff;
+}
+
+.s-mockup-v2 {
+  position: absolute;
+  left: 6.25rem;
+  bottom: 6.25rem;
+  width: 25rem;
+  height: auto;
+}
+
+@media (max-width: 33.9em) {
+  .s-mockup-v2 {
+    display: none;
+  }
+}
+
+@media (min-width: 34em) {
+  .s-mockup-v2 {
+    position: absolute;
+    left: 0.625rem;
+    bottom: 0.625rem;
+    width: 18.75rem;
+    height: auto;
+  }
+}
+
+@media (min-width: 48em) {
+  .s-mockup-v2 {
+    position: absolute;
+    left: 5rem;
+    bottom: 5rem;
+    width: 18.75rem;
+    height: auto;
+  }
+}
+
+
+@media only screen and (max-width: 780px) {
+    .pride {
+        height:200px;
+    }
+	.pridelogo{
+	width:100%
+	}
+}
+
+
+<!-- .marginBottom-0 {margin-bottom:0;} -->
+
+
+<!-- .navbar-default .navbar-nav .dropdown-menu{ -->
+     <!-- background-color:#0a0a90; -->
+	 <!-- color:white; -->
+<!-- } -->
+<!-- .navbar-default .navbar-nav .dropdown-menu li a:hover{ -->
+     <!-- background-color:black; -->
+	 <!-- color:#FFFFFF; -->
+<!-- } -->
+<!-- .navbar-default .navbar-nav .dropdown-menu:visited{ -->
+     <!-- background-color:#0a0a90; -->
+	 <!-- color:white; -->
+<!-- } -->
+
+
+
+
+</style>
+	
+
+</head>
+<body >
+   <div style="background-image:url('grass.jpg');background-size:cover; " class="img-responsive">
+<!--header begins -->
+<div class="col-md-12 pride" style="background-image:url('top.gif');border-bottom:7px solid red;"  >
+<div class="col-md-4" >
+
+
+<img id="spinner" src="11.png" class="img-responsive" >
+</div>
+
+<div class="col-md-5">
+</div>
+<div class="col-md-1 col-xs-6 login" style=" text-align:center;margin-top:25px;padding:6px;">
+<h1 class="w3layouts-title rotateInUpRight animated" data-wow-delay=".5s"> <button type="button"class="btn btn-primary btn-sm"  style="width:100px;font-size:16px;border:3px solid white;padding:5px">LOGIN</button></h1>
+</div>
+<div class="col-md-2 col-xs-6 " style="margin-top:35px;text-align:c;padding-left:55px;background-image:url('');">
+<h1 class="wow swing animated" data-wow-delay=".5s"><img src="rightsidelogo.png"  style=""class="img-responsive pridelogo"></h1>
+</div>
+</div>
+ 
+       <!-- header ends -->
+<br>
+<br>
+<br>
+<div class="container-fluid">
+     <div class="row">
+       <div class="col-md-12" style="margin-top:15px;">
+      <div class="col-md-3 w3layouts-title wow slideInLeft animated" data-wow-delay=".2s"  >
+
+  <p  class="w3layouts-title wow fadeInDown animated" data-wow-delay="1s" style="background-color:#0a0a90;font-size:16px;color:white;padding:8px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;margin-top:0px;">My Profile</p>
+
+  
+   <img src="img1.png" alt="image1" class="w3layouts-title    wow zoomIn animated" data-wow-delay="2s" style="margin-top:-0px; width:100%;z-index:-1;">
+  
+  
+ 
+    <div  class="w3layouts-title wow fadeInRight animated" data-wow-delay="3s" >
+  <table style="width:100%;postion:absolute;margin-top:-155px;color:black;opacity:0.8;background-color:white;line-height:30px;padding:10px;">
+  <tr>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="4s"style="padding-left:14px"><h3 style="color:blue">Gaurav Chand</h3></td>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="4s"style="padding-left:14px"><h1 class="wow zoomIn animated" data-wow-delay=".5s"><img  src="india.png"></h1></td>
+  </tr>
+  <tr>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="5s" style="padding-left:14px">striker</td>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="5s" style="padding-left:14px">kerala</td>
+  </tr>
+  <tr>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="6s"style="padding-left:14px">age</td>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="6s"style="padding-left:14px">14years</td>
+  </tr><tr>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="7s"style="padding-left:14px">Gender</td>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="7s"style="padding-left:14px">male</td>
+  </tr><tr>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="8s"style="padding-left:14px">Rating</td>
+  <td class="w3layouts-title wow fadeInDown animated" data-wow-delay="8s" style="padding-left:14px"><img src="star1.png" class="w3 wow fadeInDown animated" data-wow-delay="8s"style="width:80px;"><span style="padding-left:5px;">4/5</span></td>
+  </tr>
+  </table>
+ </div>
+  <p style="background-color:#0f434c;margin-top:-3px;opacity:0.8;color:white;padding:12px;">Born on 5th May 2002,Duis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu fugiat nulla pariatur.Exceptuer sint occaecat cupidatat non born on 5th May 2002,Duis aute irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu fugiat nulla pariatur.Exceptuer sint occaecat cupidatat non born on 5th May 2002,Duis aute irure  </p>
+  
+  <br />
+
+     <p  class="w3layouts-title wow fadeInDown animated" data-wow-delay="1s" style="background-color:#0a0a90;font-size:16px;color:white;padding:8px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;margin-top:0px;">Performance Graph</p>
+
+  <!-- <h3 class="w3layouts-title wow fadeInDown animated" data-wow-delay=".3s" style="background-color:#0a0a90;font-size:16px;color:white; -->
+   <!-- padding:15px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;"></h3> -->
+   <div>
+   <img  class="wow zoomIn animated" data-wow-delay=".5s" src="graph.png" style="width:100%;margin-top:0px;">
+   </div>
+   
+    <br />
+
+    <p  class="w3layouts-title wow fadeInDown animated" data-wow-delay="1s" style="background-color:#0a0a90;font-size:16px;color:white;padding:8px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;margin-top:0px;">Tournament Details</p>
+    <!-- <h3  class="w3layouts-title wow fadeInDown animated" data-wow-delay=".3s" style="background-color:#0a0a90;font-size:16px;color:white; -->
+ <!-- padding:15px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;">Tournament Details</h3> -->
+ <div style="background-color:#22465c;opacity:0.7;color:white;margin-top:px;">
+ <div class="table-responsive"> 
+ <table class="table" >
+    
+    <tbody>
+      <tr>
+        <td>Total tournaments</td>
+        <td>04</td>
+       
+      </tr>
+        <tr>
+        <td>Total Matches</td>
+        <td>32</td>
+       
+      </tr>
+        <tr>
+        <td>Total Won</td>
+        <td>20</td>
+       
+      </tr>
+        <tr>
+        <td>Total Lost</td>
+        <td>06</td>
+       
+      </tr>
+   <tr>
+        <td>Total Withdraw</td>
+        <td>06</td>
+       
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+  </div>
+	 
+	 
+	 
+	   <div class="col-md-6">
+	
+
+
+
+
+        <!-- <div class="w3layouts-title wow fadeInDown animated" data-wow-delay="3s" > -->
+        <nav class="navbar navbar-default navbar-static-top marginBottom-0" role="navigation" style="margin-left:px;padding-top:px;background-color:#0a0a90;border-radius:10px 10px 0 0;" >
+		<div class="container-fluid">
+            <div class="navbar-header" style="float:right;padding-top:4px;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+             
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbar-collapse-1" style="text-align:center;">
+                <ul class="nav navbar-nav" style="font-size:14px;padding-left:3px;color:white;padding:1px;">
+               
+                    <li class="active"><a href="#" style="border-radius:25px 0 25px 0;">Home</a></li>
+                    <li class="dropdown "><a href="#" class="dropdown-toggle" data-toggle="dropdown"style="border-radius:25px 0 25px 0;">Attributes <b class="caret"></b></a>
+                        <ul class="dropdown-menu" >
+                            <li><a href="attributrs.html"  style="border-radius:25px 0 25px 0;color:white">GUI</a></li>
+                            <li><a href="cui.html" style="border-radius:25px 0 25px 0;color:white">CUI</a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="bio.html" style="border-radius:25px 0 25px 0;" >Biography</a></li>
+                        <li class="dropdown"><a href="#" style="border-radius:25px 0 25px 0;" class="dropdown-toggle" data-toggle="dropdown">Media Gallery <b class="caret"></b></a>
+                         <ul class="dropdown-menu">
+                            <li><a href="imggallery.html" style="border-radius:25px 0 25px 0;color:white">Photo Gallery</a></li>
+                            <li><a href="vgallery.html" style="border-radius:25px 0 25px 0;color:white">Video Gallery</a></li>
+                        </ul>
+                      </li> 
+					  
+					   <li class="dropdown"><a href="#" style="border-radius:25px 0 25px 0;" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+                         <ul class="dropdown-menu">
+                            <li><a href="ucevents.html" style="border-radius:25px 0 25px 0;color:white">upcoming Events</a></li>
+                            <li><a href="postevents.html" style="border-radius:25px 0 25px 0;color:white">Past Events </a></li>
+                        </ul>
+                      </li>
+					  <li><a href="contact.html"  style="border-radius:25px 0 25px 0;">Contact</a></li>
+                    
+                </ul>
+            </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+        <!-- </div> -->
+       
+        
+             
+
+
+
+    <!-- <!-- slider --> 
+  <div id="wowslider-container1" class="w3layouts-title    wow zoomIn animated" data-wow-delay="3s" style="margin-top:0px;">
+	<div class="ws_images"><ul>
+		<li><img src="data1/images/01.png" alt="Celebrating after Goal" title="Celebrating after Goal" id="wows1_0"/></li>
+		<li><a href="#"><img src="data1/images/02.png" alt="wow slider" title="Celebrating after Goal" id="wows1_1"/></a></li>
+		<li><img src="data1/images/03.png" alt="Celebrating after Goal" title="Celebrating after Goal" id="wows1_2"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="Celebrating after Goal"><span>1</span></a>
+		<a href="#" title="Celebrating after Goal"><span>2</span></a>
+		<a href="#" title="Celebrating after Goal"><span>3</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"></div>
+	<div class="ws_shadow"></div>
+	</div>	
+	<script type="text/javascript" src="engine1/wowslider.js"></script>
+	<script type="text/javascript" src="engine1/script.js"></script>
+   <br>
+	 
+	 <div class="w3labout-right" >
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+     <ul id="myTab" class="nav nav-tabs" role="tablist" style="background-color:#0a0a90;border-radius:10px 10px 0 0;" >
+      <li class=" active wow fadeInDown animated" data-wow-delay=".3s" role="presentation"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">TECHNICAL</a></li>
+      <li class="wow fadeInDown animated" data-wow-delay=".7s"role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">PHYSICAL</a></li>
+      <li class="wow fadeInDown animated" data-wow-delay=".7s"role="presentation" class="active"><a href="#tree" role="tab" id="tree-tab" data-toggle="tab" aria-controls="tree">MENTAL</a></li>
+     </ul>
+     <div id="myTabContent" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
+       <div class="tab-info" style="background-color:white;">
+        <img class="wow fadeInLeft animated" data-wow-delay=".3s" src="four.png" style="width:100%;">
+        
+       </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
+       <div class="tab-info">
+                  <img  src="four.png" style="width:100%;">
+       </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="tree" aria-labelledby="tree-tab">
+       <div class="tab-info">
+                <img src="four.png" style="width:100%;">
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+
+	   <br />
+	 <div class="container-fluid" style="background-color:white;">
+    
+   
+     <div class="row">
+      <div class="col-md-12" style="padding-top:10px">
+      <div class="col-md-6" >
+   <p class="wow fadeInLeft animated" data-wow-delay=".5s" style="color:blue;text-align:left;">Gaurav Chand</p>
+   </div>
+      <div class="col-md-6">
+<p class="wow fadeInRight animated" data-wow-delay=".5s" style="text-align:right;"> Posted on 21 April 2017</p>
+      
+      </div>
+      </div>
+      </div>
+      
+       <div>
+       
+       <p class="wow zoomIn animated" data-wow-delay=".9s" style="text-align:justify;padding:10px;"> Sute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+       </div>
+    <hr style="background-color:red;width:90%;margin-bottom:-0.5px">
+    <div class="col-md-12" >
+    <div class="col-md-4 col-sm-6">
+    <a href="#" style="padding:10px"class="glyphicon glyphicon-thumbs-up " data-wow-delay=".3s" >Like</a>
+    <a href="#" class="glyphicon glyphicon-heart  " data-wow-delay=".3s" >Comments</a>
+    </div>
+    <div class="col-md-3 col-sm-6">
+    </div>
+    <div class="col-md-5 col-sm-6"style="margin-top:10px">
+   <h5 class=" wow bounceInUp animated"data-wow-delay=".5s"> <a href="#"  >13 Comments  </a>
+    <a href="#" class="  wow bounceInUp animated" style=";">4 Likes  </a></h5>
+    </div>
+    <hr style="background-color:red;width:94%">
+    </div>
+    </div>
+  
+  
+  <br>
+  
+    <div class="col-md-12" style="background-color:white;">
+    <div class="col-md-12" class="wow zoomIn animated" data-wow-delay=".9s" >
+   <input class="wow zoomIn animated" data-wow-delay=".5s"  type="text" placeholder="Write a Comment" style="width:100%;margin-top:20px;;height:40px;">
+   </div>
+   <div  style="background-color:white;overflow-y:scroll;width:100%;height:250px;">
+   <div class="col-md-12" style="margin-top:20px">
+   <img src="d1.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInRight animated" data-wow-delay=".6s">
+   <p style="margin-top:-6px" class="wow fadeInRight animated" data-wow-delay=".8s">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div>
+ <div class="col-md-12" style="margin-top:20px">
+   <img src="d2.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInLeft animated" data-wow-delay=".6s">
+   <p class="wow fadeInLeft animated" data-wow-delay=".8s" style="margin-top:-6px">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu 
+   fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div>
+   <div class="col-md-12" style="margin-top:20px;padding-bottom:10px">
+   <img src="d3.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInRight animated" data-wow-delay=".6s">
+   <p class="wow fadeInRight animated" data-wow-delay=".8s"   style="margin-top:-6px">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu 
+   fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div><div class="col-md-12" style="margin-top:20px">
+   <img src="d2.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInLeft animated" data-wow-delay=".6s">
+   <p class="wow fadeInLeft animated" data-wow-delay=".8s" style="margin-top:-6px">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu 
+   fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div>
+   <div class="col-md-12" style="margin-top:20px;padding-bottom:10px">
+   <img src="d3.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInRight animated" data-wow-delay=".6s">
+   <p class="wow fadeInRight animated" data-wow-delay=".8s"   style="margin-top:-6px">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu 
+   fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div><div class="col-md-12" style="margin-top:20px">
+   <img src="d2.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInLeft animated" data-wow-delay=".6s">
+   <p class="wow fadeInLeft animated" data-wow-delay=".8s" style="margin-top:-6px">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu 
+   fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div>
+   <div class="col-md-12" style="margin-top:20px;padding-bottom:10px">
+   <img src="d3.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInRight animated" data-wow-delay=".6s">
+   <p class="wow fadeInRight animated" data-wow-delay=".8s"   style="margin-top:-6px">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu 
+   fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div><div class="col-md-12" style="margin-top:20px">
+   <img src="d2.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInLeft animated" data-wow-delay=".6s">
+   <p class="wow fadeInLeft animated" data-wow-delay=".8s" style="margin-top:-6px">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu 
+   fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div>
+   <div class="col-md-12" style="margin-top:20px;padding-bottom:10px">
+   <img src="d3.jpg" style="padding-right:8px;" class="pull-left img-responsive wow fadeInRight animated" data-wow-delay=".6s">
+   <p class="wow fadeInRight animated" data-wow-delay=".8s"   style="margin-top:-6px">irureDuis aute irure dolor in reprehendriet in voluptate velit esse cilum dolorde eu 
+   fugiat nulla pariatur.Exceptuer sint occaeca</p>
+   </div>
+  </div>
+  </div>
+	   
+	 </div>
+	 
+	 
+	   <div class="col-md-3">
+<!-- <p  class="w3layouts-title wow fadeInDown animated" data-wow-delay="1s" style="background-color:#0a0a90;font-size:16px;color:white;padding:10px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;margin-top:0px;">Positioning </p> -->
+	 	     <p  class="w3layouts-title wow fadeInDown animated" data-wow-delay="1s" style="background-color:#0a0a90;font-size:16px;color:white;padding:8px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;margin-top:0px;">Tournament Details</p>
+
+		 <div>
+		 
+	 <img src="1.png" style="margin-top:0px;" width="100%"class="img-responsive wow zoomIn animated" data-wow-delay="4s">
+	 </div>
+	 <br>
+
+
+<div class="col-md-12" >
+<div class="row"  class=" wow zoomIn animated" data-wow-delay=".9s"  style="padding-bottom:10px;background-color:#0f434c;margin-top:-10px;opacity:0.8;">
+<p  class="w3layouts-title wow fadeInDown animated" data-wow-delay="1s" style="background-color:#0a0a90;font-size:16px;color:white;padding:8px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;margin-top:0px;">Image Gallery <button style="float:right;background-color:white;color:blue;"class="btn btn-primary btn-sm">View More</button></p>
+
+ <div class="col-md-6 col-sm-6 gallary" style="">
+        <img style="margin-left:-5px" src="2.png" class=" wow zoomIn animated" data-wow-delay=".9s" alt="inn_logo" width="109%"/>
+    </div>
+    <div class="col-md-6  col-sm-6 gallary" style="">
+        <a href="#" style="margin-left:-5px"><img src="3.png" class=" wow zoomIn animated" data-wow-delay=".9s"  alt="ccs_logo"width="109%" /></a>
+   
+</div>
+ <div class="col-md-6 col-sm-6 gallary" style="margin-top:10px">
+        <a href="#"><img style="margin-left:-5px" class=" wow zoomIn animated" data-wow-delay=".9s" src="2.png" alt="inn_logo" width="109%"/></a>
+    </div>
+    <div class="col-md-6  col-sm-6  gallary" style="margin-top:10px">
+        <a href="#" style="margin-left:-5px"><img class=" wow zoomIn animated" data-wow-delay=".9s" src="3.png" alt="ccs_logo"width="109%" /></a>
+   
+</div>
+</div>
+</div>
+<div class="col-md-12" >
+<div class="row" style="margin-top:10px">
+<p  class="w3layouts-title wow fadeInDown animated" data-wow-delay="1s" style="background-color:#0a0a90;font-size:16px;color:white;padding:8px;font-weight:bold;border-radius:10px 10px 0 0;padding-left:20px;margin-top:0px;">Video Gallery <button style="float:right;background-color:white;color:blue;"class="btn btn-primary btn-sm">View More</button></p>
+
+<video width="100%" controls class="embed-responsive-item">
+  <source src="football.mp4" type="video/mp4">
+  <source src="football.ogg" type="video/ogg">
+
+</video>
+</div>
+</div>
+	 
+</div>
+</div>
+</div>
+</div>
+
+<br>
+<!--footer  -->
+<div class="container-fluid" style="padding-bottom:20px;background-color:#0a0a90; border-top:5px solid red;">
+   <div class="row">
+    <div class="col-md-12">
+	<div class="col-md-1">
+	</div>
+   <div class="col-md-2" >
+   <ul class="wow slideInRight animated" data-wow-delay="1s" style="list-style-type:square;color:white;font-size: 14px;padding-top:40px;line-height:30px;">
+     <li>Attributes</li>
+     <li>Biography</li>
+	 <li>Media</li>
+	 <li>Gallery</li>
+	 <li>Events</li>
+	 <li>Contact</li>
+   </ul>
+   </div>
+
+<div class="col-md-3" >
+ <ul class="wow slideInLeft animated" data-wow-delay="1s" style="list-style-type:none;color:white;font-size:14px;padding-top:40px;line-height:30px;">
+     <li style="color:#4698f0;">My Academy</li>
+     <li>Gaurav Chand</li>
+	 <li>FlatNo 340,plotNo 345-84(3)</li>
+	 <li>Near Cyber Gateway</li>
+	 <li>Madhapur,Hitech City</li>
+	 <li>Hyderabad,Telangana.</li>
+   </ul>
+</div>
+   <div class="col-md-3" style=" padding-top:20px;">
+     <h4 style="color:white;">ENQUIRY FORM</h4><br>
+  <form action="/action_page.php">
+    <!-- <div class="form-group"> -->
+      <!-- <!-- <label for="fname">Full Name:</label> -->
+      <!-- <input type="fname" class="form-control" id="fname" placeholder="Enter Name" name="fname"> -->
+    <!-- </div> -->
+    <!-- <div class="form-group"> -->
+      <!-- <!-- <label for="pwd">Phone Number:</label> -->
+      <!-- <input type="text" class="form-control" id="pwd" placeholder="Enter mobile Num" name="phno"> -->
+    <!-- </div> -->
+ <!-- <div class="form-group"> -->
+      <!-- <!-- <label for="pwd">Email:</label> --> 
+      <!-- <input type="Email" class="form-control" id="email" placeholder="Enter Email" name="email"> -->
+    <!-- </div> -->
+    
+	 <div class="g-position--relative g-bg-color--primary">
+            <div class="g-container--md g-padding-y-125--xs">
+              
+                <form class="center-block g-width-500--sm g-width-550--md">
+                    <div class="g-margin-b-30--xs">
+                        <input type="text" class="form-control s-form-v3__input" placeholder="Full Name">
+                    </div>
+                    <!-- <div class="row g-row-col-5 g-margin-b-50--xs"> -->
+                         <div class=" g-margin-b-30--xs g-margin-b-0--md">
+                            <input type="em" class="form-control s-form-v3__input" placeholder="Phone Number">
+                        </div>
+                    <!-- </div> -->
+                    <div class=" g-margin-b-30--xs g-margin-b-0--md">
+                            <input type="em" class="form-control s-form-v3__input" placeholder="Email-Address">
+                        </div>
+                    <div class="g-text-center--xs">
+                        <!-- <button type="submit" class="text-uppercase s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-70--xs g-margin-b-20--xs">Submit</button> -->
+                    </div>
+                </form>
+            </div>
+            <!-- <img class="s-mockup-v2" src="img/mockups/pencil-01.png" alt="Mockup Image"> -->
+        </div>
+  </form>
+	</div>
+
+   <div class="col-md-3" style="flaot:leftpadding-top:20px;">
+      <p style="padding-top:60px;color:white;font-size:14px;">Enquiry /Sugesstion</p>
+	  <br />
+	  <form action="/action_page.php">
+	<div class=" g-margin-b-30--xs g-margin-b-0--md">
+                            <input type="em" class="form-control s-form-v3__input">
+                        </div>
+	  </form>
+	  <br />
+	  <div class="g-text-center--xs" style=";">
+                        <button type="submit" class="text-uppercase s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-70--xs g-margin-b-20--xs" style="text-align:center;padding-top:10px;padding-left:15px;padding-right:15px;padding-bottom:10px">Submit</button>
+                    </div>
+	  <!-- <button type="button" class=" btn btn-primary" style="width:200px;font-size:16px;margin-left:30px;">Submit Enquiry</button> -->
+   </div>
+<div class="col-md-1">
+
+	</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+
+<script src="js/wow.min.js"></script>
+ <script>
+   new WOW().init();
+ </script>
+ <!-- //animation --> 
+ <!-- start-smooth-scrolling -->
+ <!-- <script type="text/javascript" src="js/move-top.js"></script> -->
+ <!-- <script type="text/javascript" src="js/easing.js"></script>  -->
+ <!-- <script type="text/javascript"> -->
+   <!-- jQuery(document).ready(function($) { -->
+    <!-- $(".scroll").click(function(event){   -->
+     <!-- event.preventDefault(); -->
+     <!-- $('html,body').animate({scrollTop:$(this.hash).offset().top},1000); -->
+    <!-- }); -->
+   <!-- }); -->
+ <!-- </script> -->
+
+ <!-- <script type="text/javascript"> -->
+  <!-- $(document).ready(function() { -->
+   <!-- /* -->
+   <!-- var defaults = { -->
+    <!-- containerID: 'toTop', // fading element id -->
+    <!-- containerHoverID: 'toTopHover', // fading element hover id -->
+    <!-- scrollSpeed: 1200, -->
+    <!-- easingType: 'linear'  -->
+   <!-- }; -->
+   <!-- */ -->
+   
+   <!-- $().UItoTop({ easingType: 'easeOutQuart' }); -->
+   
+  <!-- }); -->
+ <!-- </script>  -->
+ <!-- //smooth-scrolling-of-move-up -->
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
